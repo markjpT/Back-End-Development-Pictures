@@ -7,4 +7,4 @@ This lab is part of the [Back-end Application Development Capstone Project](http
 - Creation of a Flask service.
 - RESTful APIs on picture URL resource.
 - The APIs should pass the given **pytest** tests.
-- The service will eventually deploy to IBM Code Engine.
+- The service will be deployed to IBM Code Engine.
