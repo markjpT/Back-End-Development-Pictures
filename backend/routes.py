@@ -35,16 +35,21 @@ def count():
 ######################################################################
 @app.route("/picture", methods=["GET"])
 def get_pictures():
-    pass
+    """
+    Get all pictures in the list
+    """
+    return data
+    
 
 ######################################################################
 # GET A PICTURE
 ######################################################################
-
-
 @app.route("/picture/<int:id>", methods=["GET"])
 def get_picture_by_id(id):
-    pass
+    for picture in data:
+        if picture["id"] == id:
+            return picture
+    return {"message": "Picture not found"}, 404
 
 
 ######################################################################
@@ -52,7 +57,21 @@ def get_picture_by_id(id):
 ######################################################################
 @app.route("/picture", methods=["POST"])
 def create_picture():
-    pass
+    """
+    This endpoint will add a new picture
+    """
+    new_picture = request.json
+
+    # if the id is already there, return 303 with the URL for the resource
+    for new_picture in data:
+        if new_picture["id"] == picture["id"]:
+            return {
+                "Message": f"picture with id {picture['id']} already present"
+            }, 302
+
+    data.append(new_picture)
+    return {"message": f"{new_picture['id']}"}, 200
+
 
 ######################################################################
 # UPDATE A PICTURE
