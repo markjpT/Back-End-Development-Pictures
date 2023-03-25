@@ -86,7 +86,7 @@ def update_picture(id):
         if picture["id"] == id:
             # Update existing picture with new data
             picture.update(updated_picture)
-            return {"message": f"Picture with id {id} updated successfully."}, 200
+            return {"message": f"Picture with id {id} updated successfully."}, 201
 
     # If picture with specified id not found in data list, return 404 error
     return {"message": f"Picture with id {id} not found."}, 404
